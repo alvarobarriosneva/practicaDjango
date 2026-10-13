@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de colaboradores</title>
+</head>
+<body>
+    <h1>Colaboradores de la protectora</h1>
+
+    {% for colaborador in colaboradores %}
+        <hr>
+        <h2>{{ colaborador.nombre }}</h2>
+        <p><strong>Cargo:</strong> {{ colaborador.cargo }}</p>
+        <p>
+            <strong>Fecha de entrada:</strong>
+            {{ colaborador.fecha_entrada_protectora|date:"d/m/Y H:i" }}
+        </p>
+        <p><strong>ID:</strong> {{ colaborador.id }}</p>
+    {% empty %}
+        <p>No hay colaboradores registrados.</p>
+    {% endfor %}
+
+    <a href="{% url 'lista_animales' %}">Ver animales</a>
+    <br>
+    <a href="{% url 'lista_protectoras' %}">Ver protectoras</a>
+</body>
+</html>

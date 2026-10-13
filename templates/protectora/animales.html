@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de animales</title>
+</head>
+<body>
+    <h1>Animales de la protectora</h1>
+
+    {% for animal in animales %}
+        <hr>
+        <h2>{{ animal.nombre }}</h2>
+        <p><strong>Tipo:</strong> {{ animal.tipo }}</p>
+        <p><strong>Cuidador:</strong> {{ animal.cuidador.username }}</p>
+        <p><strong>ID:</strong> {{ animal.id }}</p>
+    {% empty %}
+        <p>No hay animales registrados.</p>
+    {% endfor %}
+
+    <a href="{% url 'lista_protectoras' %}">Ver protectoras</a>
+    <br>
+    <a href="{% url 'lista_colaboradores' %}">Ver colaboradores</a>
+</body>
+</html>
