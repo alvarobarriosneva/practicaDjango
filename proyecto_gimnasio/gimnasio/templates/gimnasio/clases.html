@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clases del gimnasio</title>
+</head>
+<body>
+    <h1>Lista de clases</h1>
+
+    {% for clase in clases %}
+        <hr>
+        <h2>{{ clase.nombre }}</h2>
+        <p>Horario: {{ clase.horario }}</p>
+        <p>Entrenador: {{ clase.entrenador.nombre }}</p>
+    {% empty %}
+        <p>No hay clases registradas.</p>
+    {% endfor %}
+
+    <a href="{% url 'lista_socios' %}">Ver socios</a>
+    <br>
+    <a href="{% url 'lista_entrenadores' %}">Ver entrenadores</a>
+</body>
+</html>

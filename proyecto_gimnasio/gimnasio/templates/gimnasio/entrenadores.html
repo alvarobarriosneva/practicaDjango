@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrenadores del gimnasio</title>
+</head>
+<body>
+    <h1>Lista de entrenadores</h1>
+
+    {% for entrenador in entrenadores %}
+        <hr>
+        <h2>{{ entrenador.nombre }}</h2>
+        <p>Especialidad: {{ entrenador.especialidad }}</p>
+        <p>
+            Fecha de contratación:
+            {{ entrenador.fecha_contratacion|date:"d/m/Y H:i" }}
+        </p>
+    {% empty %}
+        <p>No hay entrenadores registrados.</p>
+    {% endfor %}
+
+    <a href="{% url 'lista_socios' %}">Ver socios</a>
+    <br>
+    <a href="{% url 'lista_clases' %}">Ver clases</a>
+</body>
+</html>

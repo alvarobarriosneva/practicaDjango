@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Socios del gimnasio</title>
+</head>
+<body>
+    <h1>Lista de socios</h1>
+
+    {% for socio in socios %}
+        <hr>
+        <h2>{{ socio.nombre }}</h2>
+        <p>Edad: {{ socio.edad }}</p>
+        <p>Tipo de membresía: {{ socio.tipo_membresia }}</p>
+    {% empty %}
+        <p>No hay socios registrados.</p>
+    {% endfor %}
+
+    <a href="{% url 'lista_entrenadores' %}">Ver entrenadores</a>
+    <br>
+    <a href="{% url 'lista_clases' %}">Ver clases</a>
+</body>
+</html>
